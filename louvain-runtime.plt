@@ -24,7 +24,8 @@ plot "louvain-compare.csv" \
   '' using ($0-5.0/20):(2.1*$3/1000):(sprintf("%.0f", $3/1000)) with labels rotate by 90 offset character 0,0 title '', \
   '' using ($0-1.5/20):(2.1*$5/1000):(sprintf("%.0f", $5/1000)) with labels rotate by 90 offset character 0,0 title '', \
   '' using ($0+1.5/20):(2.1*$7/1000):(sprintf("%.0f", $7/1000)) with labels rotate by 90 offset character 0,0 title '', \
-  '' using ($0+5.0/20):(2.1*$8/1000):(sprintf("%.1f", $8/1000)) with labels rotate by 90 offset character 0,0 title ''
+  '' using ($0+5.0/20):(2.1*$8/1000):($8/1000>=1? sprintf("%.1f", $8/1000) : "") with labels rotate by 90 offset character 0,0 title '', \
+  '' using ($0+5.0/20):(2.1*$8/1000):($8/1000 <1? sprintf("%.2f", $8/1000) : "") with labels rotate by 90 offset character 0,0.2 title ''
   # '' using 2 title '' ls 1 lw 3 with linespoints axes x1y2, \
   # '' using 4 title '' ls 2 lw 3 with linespoints axes x1y2, \
   # '' using 6 title '' ls 3 lw 3 with linespoints axes x1y2, \

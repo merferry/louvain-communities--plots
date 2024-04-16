@@ -20,8 +20,10 @@ plot "louvain-compare.csv" \
   '' using ($5/$8):xtic(1) title 'Grappolo (Louvain)' with histogram fill pattern 3, \
   '' using ($7/$8):xtic(1) title 'NetworKit Louvain'  with histogram fill pattern 3, \
   '' using ($0-2./10):(8 + $3/$8):(sprintf("%.0f", $3/$8)) with labels rotate by 90 offset character 0,0 title '', \
-  '' using ($0-0./10):(8 + $5/$8):(sprintf("%.0f", $5/$8)) with labels rotate by 90 offset character 0,0 title '', \
-  '' using ($0+2./10):(8 + $7/$8):(sprintf("%.0f", $7/$8)) with labels rotate by 90 offset character 0,0 title ''
+  '' using ($0-0./10):(8 + $5/$8):($5/$8>=10? sprintf("%.0f", $5/$8) : "") with labels rotate by 90 offset character 0,0 title '', \
+  '' using ($0-0./10):(8 + $5/$8):($5/$8 <10? sprintf("%.1f", $5/$8) : "") with labels rotate by 90 offset character 0,0.2 title '', \
+  '' using ($0+2./10):(8 + $7/$8):($7/$8>=10? sprintf("%.0f", $7/$8) : "") with labels rotate by 90 offset character 0,0 title '', \
+  '' using ($0+2./10):(8 + $7/$8):($7/$8 <10? sprintf("%.1f", $7/$8) : "") with labels rotate by 90 offset character 0,0.2 title ''
   # '' using ($2/$9) title '' ls 1 lw 3 with linespoints axes x1y2, \
   # '' using ($4/$9) title '' ls 2 lw 3 with linespoints axes x1y2, \
   # '' using ($6/$9) title '' ls 3 lw 3 with linespoints axes x1y2
